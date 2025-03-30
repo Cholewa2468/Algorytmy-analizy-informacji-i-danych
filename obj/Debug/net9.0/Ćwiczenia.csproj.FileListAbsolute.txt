@@ -1,0 +1,14 @@
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\bin\Debug\net9.0\Ćwiczenia.exe
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\bin\Debug\net9.0\Ćwiczenia.deps.json
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\bin\Debug\net9.0\Ćwiczenia.runtimeconfig.json
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\bin\Debug\net9.0\Ćwiczenia.dll
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\bin\Debug\net9.0\Ćwiczenia.pdb
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.AssemblyInfoInputs.cache
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.AssemblyInfo.cs
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.csproj.CoreCompileInputs.cache
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.dll
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\refint\Ćwiczenia.dll
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.pdb
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.genruntimeconfig.cache
+c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\ref\Ćwiczenia.dll
