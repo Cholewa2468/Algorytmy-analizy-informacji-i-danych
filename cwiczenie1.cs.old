@@ -1,0 +1,56 @@
+﻿using System;
+using System.IO;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+// A)
+        string text = File.ReadAllText("tekst.txt"); // Odczytanie całego pliku
+        string[] words = text.Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+
+        char letter = 'a';
+            
+        int steps = FindFirstWordStartingWithA(words, letter);
+
+        if (steps != -1)
+            Console.WriteLine($"Pierwsze słowo na '{letter}' lub '{char.ToUpper(letter)}' znalezione po {steps} krokach.");
+        else
+            Console.WriteLine("Brak słowa rozpoczynającego się na '{letter}' w pliku.");
+
+
+// B)
+        // Znajdź ostatnie słowo w pliku
+        string text2 = File.ReadAllText("tekst2.txt"); // Odczytanie całego pliku
+        string[] words2 = text2.Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+
+        string targetWord = words2[words2.Length - 1]; // ostatnie słowo
+
+        int steps2 = FindTargetWord(words2, targetWord);
+
+        if (steps2 != -1)
+            Console.WriteLine($"Ostatnie słowo '{targetWord}' znalezione po {steps2} krokach.");
+        else
+            Console.WriteLine("Nie znaleziono ostatniego słowa.");
+    }
+
+    static int FindFirstWordStartingWithA(string[] words, char letter)
+    {
+        for (int i = 0; i < words.Length; i++)
+        {
+            if (words[i][0] == letter || words[i][0] == char.ToUpper(letter))// Sprawdzamy pierwszą literę | Algorymt liniowy
+                return i + 1; // Liczymy kroki od 1
+        }
+        return -1; // Jeśli nie znaleziono
+    }
+    static int FindTargetWord(string[] words2, string target)
+    {
+        for (int i = 0; i < words2.Length; i++)
+        {
+            if (words2[i] == target)
+                return i + 1; // kroki od 1
+        }
+        return -1;
+    }
+}

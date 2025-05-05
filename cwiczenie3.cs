@@ -1,0 +1,91 @@
+using System;
+using System.IO;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+// A)
+        string text = File.ReadAllText("tekst.txt"); // Odczytanie całego pliku
+        string[] words = text.Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+            
+        int steps = FindFirstWordStartingWithA(words);
+
+        if (steps != -1)
+            Console.WriteLine($"Tekst został posortowany po {steps} krokach.");
+        else
+            Console.WriteLine("Nie został posortowany.");
+
+
+// B)
+        string text2 = File.ReadAllText("tekst2.txt"); // Odczytanie całego pliku
+        string[] words2 = text2.Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+
+        int steps2 = FindTargetWord(words2);
+
+        if (steps != -1)
+            Console.WriteLine($"Tekst został posortowany po {steps2} krokach.");
+        else
+            Console.WriteLine("Nie został posortowany.");
+    }
+
+    //sortowanie przez wybór
+    static int FindFirstWordStartingWithA(string[] words)
+    {
+        int steps = 0;
+
+        for (int i = 0; i < words.Length - 1; i++)
+        {
+            int minIndex = i;
+
+            for (int j = i + 1; j < words.Length; j++)
+            {
+                steps++; // krok porównania
+                if (string.Compare(words[j], words[minIndex], StringComparison.OrdinalIgnoreCase) < 0)
+                {
+                    minIndex = j;
+                }
+            }
+
+            if (minIndex != i)
+            {
+                // Zamiana miejscami
+                string temp = words[i];
+                words[i] = words[minIndex];
+                words[minIndex] = temp;
+                steps++; // krok zamiany
+            }
+        }
+
+        return steps;
+    }
+    static int FindTargetWord(string[] words2)
+    {
+        int steps = 0;
+
+        for (int i = 0; i < words2.Length - 1; i++)
+        {
+            int minIndex = i;
+
+            for (int j = i + 1; j < words2.Length; j++)
+            {
+                steps++; // krok porównania
+                if (string.Compare(words2[j], words2[minIndex], StringComparison.OrdinalIgnoreCase) < 0)
+                {
+                    minIndex = j;
+                }
+            }
+
+            if (minIndex != i)
+            {
+                // Zamiana miejscami
+                string temp = words2[i];
+                words2[i] = words2[minIndex];
+                words2[minIndex] = temp;
+                steps++; // krok zamiany
+            }
+        }
+        return steps;
+    }
+}

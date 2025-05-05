@@ -12,3 +12,4 @@ c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćw
 c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.pdb
 c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.genruntimeconfig.cache
 c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\ref\Ćwiczenia.dll
+C:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.sourcelink.json
