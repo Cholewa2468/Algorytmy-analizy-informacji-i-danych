@@ -1,0 +1,73 @@
+using System;
+using System.IO;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+// A)
+        string text = File.ReadAllText("tekst.txt"); // Odczytanie całego pliku
+        string[] words = text.Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+            
+        int steps = QuickSort(words, 0, words.Length - 1); // Wywołanie funkcji QuickSort
+
+        if (steps != -1)
+            Console.WriteLine($"Tekst został posortowany po {steps} krokach.");
+        else
+            Console.WriteLine("Nie został posortowany.");
+
+
+// B)
+        string text2 = File.ReadAllText("tekst2.txt"); // Odczytanie całego pliku
+        string[] words2 = text2.Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+
+        int steps2 = QuickSort(words2, 0, words2.Length - 1); // Wywołanie funkcji QuickSort
+
+        if (steps != -1)
+            Console.WriteLine($"Tekst został posortowany po {steps2} krokach.");
+        else
+            Console.WriteLine("Nie został posortowany.");
+    }
+
+    //sortowanie QuickSort
+    static int QuickSort(string[] words, int left, int right)
+    {
+        int steps = 0;
+        if (left < right)
+        {
+            int pivotIndex = Partition(words, left, right); // Wywołanie funkcji Partition
+            steps += QuickSort(words, left, pivotIndex - 1);
+            steps += QuickSort(words, pivotIndex + 1, right);
+            steps++;
+        }
+        return steps;
+    }
+
+        //funkcja dzieląca tablicę na dwie części
+        // i zwracająca indeks pivota
+    static int Partition(string[] words, int left, int right)
+    {
+        string pivot = words[right];
+        int i = left- 1;
+
+        for (int j = left; j < right; j++)
+        {
+            if (string.Compare(words[j], pivot, StringComparison.Ordinal) <= 0)
+            {
+                i++;
+                Swap(words, i, j);
+            }
+        }
+        Swap(words, i + 1, right); // Zamiana pivota na właściwe miejsce
+        return i + 1;
+    }
+
+        //funkcja zamieniająca elementy miejscami
+    static void Swap(string[] words, int i, int j)
+    {
+        string temp = words[i];
+        words[i] = words[j];
+        words[j] = temp;
+    }
+}

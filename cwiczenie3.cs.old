@@ -10,7 +10,7 @@ class Program
         string text = File.ReadAllText("tekst.txt"); // Odczytanie całego pliku
         string[] words = text.Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
             
-        int steps = FindFirstWordStartingWithA(words);
+        int steps = SortByChoice(words);
 
         if (steps != -1)
             Console.WriteLine($"Tekst został posortowany po {steps} krokach.");
@@ -31,7 +31,7 @@ class Program
     }
 
     //sortowanie przez wybór
-    static int FindFirstWordStartingWithA(string[] words)
+    static int SortByChoice(string[] words)
     {
         int steps = 0;
 
