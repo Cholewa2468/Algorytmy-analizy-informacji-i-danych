@@ -1,0 +1,70 @@
+using System;
+using System.IO;
+using System.Linq;
+
+class Program
+{
+    static int stepsMemo = 0; // Zmienna do zliczania kroków
+    static void Main()
+    {
+        double dana = 35711/100;
+        int nr = (int)Math.Round(dana); // = 357
+        //Console.WriteLine(Fibonacci(nr));
+
+        Console.WriteLine(FibonacciMemo(nr, new long[nr + 1]));
+        Console.WriteLine("Liczba kroków dla algorytmu rekurencyjnego: " + stepsMemo);
+
+        Console.WriteLine(FibonacciBottomUp(nr));
+
+
+    }
+
+    // A) algorytm rekurencyjny przy dużych liczbach jak wyżej
+    //    działa bardzo wolno
+    static long Fibonacci(int n)
+    {
+        if (n <= 1) return n;
+        else{
+            return Fibonacci(n - 1) + Fibonacci(n - 2);
+        }
+        
+    }
+
+    // B) algorytm wykorzystujący memoizację
+    //    działa szybciej, wykorzystuje pamięć do przechowywania wyników
+    static long FibonacciMemo(int n, long[] memo)
+    {
+        stepsMemo++; // Zmienna do zliczania kroków
+        // Sprawdzenie, czy wynik dla n jest już obliczony
+        if (memo[n] != 0) return memo[n];
+        // Jeśli nie, obliczamy go rekurencyjnie
+        if (n <= 1){
+            return n;
+        }
+        else{
+            // Obliczamy wynik i zapisujemy go w tablicy memo
+            memo[n] = FibonacciMemo(n - 1, memo) + FibonacciMemo(n - 2, memo);
+            // Zwracamy wynik
+            return memo[n];
+        }
+    }
+
+    // C) Bottom-up, wykorzystuje pętle zamiast rekurencji
+    //    działa najszybciej, nie wykorzystuje pamięci, lecz tablice
+    //    do przechowywania wyników
+    static long FibonacciBottomUp(int n)
+    {
+        int steps = 0; // Zmienna do zliczania kroków
+        if (n <= 1) return n;
+        long[] fib = new long[n + 1];
+        fib[0] = 0;
+        fib[1] = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            fib[i] = fib[i - 1] + fib[i - 2];
+            steps++; // Zliczanie kroków
+        }
+        Console.WriteLine("Liczba kroków Bottom-Up:"+ steps);
+        return fib[n];
+    }
+}
