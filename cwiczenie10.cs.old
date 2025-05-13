@@ -1,0 +1,86 @@
+using System;
+using System.IO;
+using System.Linq;
+using Phonix;
+//dodano pakiet Phonix aby użyć algorytmu SoundEx zaimplementowanego w tej bibliotece
+
+class Program
+{
+
+    static void Main()
+    {
+        /*
+        SoundEx to fonetyczny algorytm służący do indeksowania słów według ich brzmienia w języku angielskim.
+        Jest to algorytm, który zamienia słowo na kod, który można porównać z innymi słowami.
+        Litery	                                Kod
+        B, F, P, V	                            1
+        C, G, J, K, Q, S, X, Z	                2
+        D, T	                                3
+        L	                                    4
+        M, N	                                5
+        R	                                    6
+        A, E, I, O, U, H, W, Y	                (pomijane)
+        */
+        string[] names = { "Artur", "Michał", "Piotr", "Michał"};
+        string[] surnames = { "Cholewski", "Grabowski", "Ausfeld", "Rydz" };
+        
+        var soundex = new Soundex();
+
+        Console.WriteLine("====================================");
+        Console.WriteLine("Soundex:");
+        Console.WriteLine("====================================");
+
+        foreach (var name in names)
+        {
+            string code = soundex.BuildKey(name); 
+            Console.WriteLine($"{name} → {code}");
+        }
+
+        foreach (var surname in surnames)
+        {
+            string code = soundex.BuildKey(surname);
+            Console.WriteLine($"{surname} → {code}");
+        }
+
+
+        //Odległość Levenshteina to minimalna liczba operacji (wstawień, usunięć, zamian znaków), 
+        // potrzebna do przekształcenia jednego słowa w drugie. Służy do:
+        // porównywania podobieństwa tekstów, korekty pisowni, dopasowania nazw (np. imion lub nazwisk).
+        Console.WriteLine("====================================");
+        Console.WriteLine("Levenshtein:");
+        Console.WriteLine("====================================");
+        
+        for (int i = 0; i < names.Length-1; i++)
+        {
+                int distance = LevenshteinDistance(names[i], names[i+1]);
+                Console.WriteLine($"Odległość Levenshteina między {names[i]} a {names[i+1]}: {distance}");
+        }
+
+    }
+
+        // Algorytm Levenshteina (wersja dynamiczna)
+    static int LevenshteinDistance(string a, string b)
+    {
+        int[,] dp = new int[a.Length + 1, b.Length + 1];
+
+        for (int i = 0; i <= a.Length; i++)
+            dp[i, 0] = i;
+
+        for (int j = 0; j <= b.Length; j++)
+            dp[0, j] = j;
+
+        for (int i = 1; i <= a.Length; i++)
+        {
+            for (int j = 1; j <= b.Length; j++)
+            {
+                int cost = (a[i - 1] == b[j - 1]) ? 0 : 1;
+                dp[i, j] = Math.Min(
+                    Math.Min(dp[i - 1, j] + 1,      // usunięcie 
+                             dp[i, j - 1] + 1),     // wstawienie
+                    dp[i - 1, j - 1] + cost);       // zamiana
+            }
+        }
+
+        return dp[a.Length, b.Length];
+    }
+}

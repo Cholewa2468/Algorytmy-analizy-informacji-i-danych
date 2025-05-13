@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tAcz0hx2mxI=",
+  "dgSpecHash": "pWsVdsqw09I=",
   "success": true,
   "projectFilePath": "C:\\Users\\arti6\\OneDrive\\Desktop\\STUDIA\\Algorytmy analizy informacji i danych\\Ćwiczenia\\Ćwiczenia.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\arti6\\.nuget\\packages\\phonix\\1.0.2\\phonix.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

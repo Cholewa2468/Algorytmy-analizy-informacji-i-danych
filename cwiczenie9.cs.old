@@ -1,0 +1,47 @@
+using System;
+using System.IO;
+using System.Linq;
+
+class Program
+{
+
+    static void Main()
+    {
+        string text = File.ReadAllText("tekst9.txt"); // Odczytanie całego pliku
+        string[] words = text.Split(new char[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+        //sortowanie słów
+        Array.Sort(words);
+
+        //dodanie słów do kolejki
+        //FIFO – First In, First Out
+        //czyli: pierwszy wchodzi, pierwszy wychodzi.
+        Queue<string> wordQueue = new Queue<string>(words);
+
+        //WAŻNIE
+        //Queuenie obsługuje bezpośredniego dostępu po indeksie, ponieważ jest oparta na zasadzie FIFO
+        // i nie przechowuje danych w sposób umożliwiający przypadkowe indeksowanie.
+        // Ale możemy to obejść, tworząc nową kolejkę z pominięciem elementów o indeksach od 100 do 200.
+        
+        // Przeniesienie do nowej kolejki, pomijając elementy 100–200
+        Queue<string> filteredQueue = new Queue<string>();
+        int index = 0;
+
+        foreach (var word in wordQueue)
+        {
+            if (index < 100 || index > 200)
+            {
+                filteredQueue.Enqueue(word);
+            }
+            index++;
+        }
+
+        // Wyświetlanie wszystkich elementów
+        Console.WriteLine("Zawartość kolejki po pominięciu elementów 100-200:");
+        foreach (string element in filteredQueue)
+        {
+            Console.WriteLine(element);
+        }
+
+    }
+
+}

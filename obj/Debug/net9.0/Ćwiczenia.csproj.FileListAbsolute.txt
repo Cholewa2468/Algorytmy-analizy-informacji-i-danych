@@ -13,3 +13,6 @@ c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćw
 c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.genruntimeconfig.cache
 c:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\ref\Ćwiczenia.dll
 C:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.sourcelink.json
+C:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\bin\Debug\net9.0\Phonix.dll
+C:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.csproj.AssemblyReference.cache
+C:\Users\arti6\OneDrive\Desktop\STUDIA\Algorytmy analizy informacji i danych\Ćwiczenia\obj\Debug\net9.0\Ćwiczenia.csproj.Up2Date
